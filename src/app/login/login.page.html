@@ -1,0 +1,37 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>login</ion-title>
+  </ion-toolbar>
+
+</ion-header>
+
+<ion-content>
+  <ion-card >
+    <ion-card-header>
+      <ion-card-title>¡Te damos la bienvenida!</ion-card-title>
+      <br>
+      <p [routerLink]="['/registro']">Si aun no tienes una cuenta, registrate ></p>
+    </ion-card-header>
+    <ion-card-content>
+      <form  [formGroup]="formLogin">
+        <ion-item>
+          <ion-label position="floating">User Name</ion-label>
+          <ion-input formControlName="username"></ion-input>
+          <ion-note slot="error" *ngIf="campo('username').invalid  && campo('username').errors && campo('username').errors.required && fueTocado('username')">Campo obligatorio</ion-note>
+          <ion-note slot="error" *ngIf="campo('username').invalid  && campo('username').errors && campo('username').errors.minlength" >Caracteres minimo 5</ion-note>
+          <ion-note slot="error" *ngIf="campo('username').invalid  && campo('username').errors && campo('username').errors.maxlength" >Caracteres maximo 10</ion-note>
+        </ion-item>
+        <ion-item>
+          <ion-label position="floating">Password</ion-label>
+          <ion-input formControlName="password"></ion-input>
+          <ion-note slot="error" *ngIf="campo('password').invalid  && campo('password').errors && campo('password').errors.required && fueTocado('password')" >Campo obligatorio</ion-note>
+          <ion-note slot="error" *ngIf="campo('password').invalid  && campo('password').errors && campo('password').errors.minlength" >Caracteres minimo 8</ion-note>
+          <ion-note slot="error" *ngIf="campo('password').invalid  && campo('password').errors && campo('password').errors.maxlength" >Caracteres maximo 16</ion-note>
+        </ion-item>
+      </form>
+      <br>
+      <ion-button fill="outline"  shape="round" color="dark" (click)="ingresar()" >Ingresar</ion-button>
+    </ion-card-content>
+  </ion-card>
+
+</ion-content>

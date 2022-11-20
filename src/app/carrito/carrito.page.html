@@ -1,0 +1,40 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>carrito</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card *ngFor="let c of carrito" >
+    <ion-card-header>
+      <ion-card-title>Carrito de compras</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <div *ngFor="let p of c.products" id="container">
+        <div id="left">
+          <h3>{{p.title}}</h3>
+          <ion-label>Price: {{p.price |currency:'USD'}}</ion-label>
+          <h2>Total: {{p.total |currency:'USD'}}</h2>
+        </div>
+        <div id="right">
+          <ion-badge slot="start">{{p.quantity}}</ion-badge>
+        </div>
+      </div>
+      <div id="total-carro">
+        <div id="total-left">
+          <h2>Discounted Total: {{c.discountedTotal|currency:'USD'}}</h2>
+          <h2>Total Products: {{c.totalProducts}}</h2>
+          <br>
+          <h1>Total: {{c.total |currency:'USD'}}</h1>
+        </div>
+        <div id="total-right">
+          <ion-badge slot="start">{{c.totalQuantity}}</ion-badge>
+        </div>
+      </div>
+    </ion-card-content>
+  </ion-card>
+
+</ion-content>

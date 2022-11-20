@@ -1,0 +1,28 @@
+#container{
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  background-color:var(--ion-color-light-tint);
+  border-radius: 10px;
+  margin-top: 10px;
+  #left{
+    display: flex;
+    flex-direction: column;
+  }
+  #right{
+    display: flex;
+    align-items: center;
+
+  }
+}
+
+#total-carro{
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+  padding: 10px;
+  #total-right{
+    display: flex;
+    align-items: center;
+  }
+}

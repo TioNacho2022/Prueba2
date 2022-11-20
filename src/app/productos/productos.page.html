@@ -1,0 +1,48 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>productos</ion-title>
+    <ion-button slot="primary" (click)="cerrarSesion()">
+      <ion-icon  name="power-outline"></ion-icon>
+    </ion-button>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-fab  vertical="bottom" horizontal="end" slot="fixed" [routerLink]="['/carrito']">
+    <ion-fab-button color="success">
+      <ion-icon name="cart"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+  <!-- Lista Producto -->
+  <ion-card *ngFor="let pro of productos">
+    <img [src]="pro.thumbnail" alt="">
+    <ion-card-header [routerLink]="['detalle',pro.id]">
+      <ion-card-title>
+        {{ pro.title }}
+      </ion-card-title>
+      <ion-card-subtitle>
+        {{pro.category}}
+      </ion-card-subtitle>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-label><ion-icon name="star-outline"></ion-icon>{{pro.rating}}</ion-label>
+      <br>
+      <ion-label>{{pro.price |currency:'USD'}}</ion-label>
+      <br>
+      <ion-label id="descuento">Dicount {{pro.discountPercentage}}</ion-label>
+      <br>
+      <ion-label>Description:{{pro.description}}</ion-label>
+      <br>
+      <ion-button   [routerLink]="['/producto-detalle',pro.id]">
+        Mas Informacion
+      </ion-button>
+    </ion-card-content>
+  </ion-card>
+  <!-- Infinite Scroll -->
+  <ion-infinite-scroll (ionInfinite)="cargarMasDatos()">
+    <ion-infinite-scroll-content loadingText="Cargando mas datos...">
+
+    </ion-infinite-scroll-content>
+  </ion-infinite-scroll>
+
+</ion-content>

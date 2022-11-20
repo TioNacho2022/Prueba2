@@ -1,0 +1,41 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>producto-detalle</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card>
+    <ng-image-slider  [images]="imgCollection" #nav></ng-image-slider>
+    <ion-card-header>
+      <ion-card-title>
+        {{ producto?.title }}
+      </ion-card-title>
+      <ion-card-subtitle>
+        {{producto?.category}}
+      </ion-card-subtitle>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-label><ion-icon name="star-outline"></ion-icon>{{producto?.rating}}</ion-label>
+      <br>
+      <ion-label>{{producto?.price |currency:'USD'}}</ion-label>
+      <br>
+      <ion-label id="descuento">Dicount {{producto?.discountPercentage}}</ion-label>
+      <br>
+      <ion-label>Descriptions:{{producto?.description}}</ion-label>
+      <br>
+      <ion-label>Stock:{{producto?.stock }}</ion-label>
+      <br>
+      <ion-label>{{producto?.brand}}</ion-label>
+      <br>
+      <ion-button color="success" (click)="agregar()">
+        Añadir al carrito
+      </ion-button>
+    </ion-card-content>
+
+  </ion-card>
+
+</ion-content>
